@@ -5,5 +5,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class PrestamoViewModel @Inject constructor(viewModel: PrestamoViewModel): ViewModel() {
+class PrestamoViewModel @Inject constructor(): ViewModel() {
+
+
 }

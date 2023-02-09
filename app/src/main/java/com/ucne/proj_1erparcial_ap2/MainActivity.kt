@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import com.ucne.proj_1erparcial_ap2.ui.prestamo.PrestamoScreen
 import com.ucne.proj_1erparcial_ap2.ui.theme.Proj_1erParcial_Ap2Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -23,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    PrestamoScreen()
                 }
             }
         }
