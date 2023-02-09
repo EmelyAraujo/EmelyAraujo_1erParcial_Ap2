@@ -105,7 +105,7 @@ private fun PrestamoRow(prestamo: PrestamoEntity) {
             }
 
             Text(
-                String.format("%.2f", prestamo.monto),
+                String.format("$ %.2f", prestamo.monto),
                 textAlign = TextAlign.End,
                 modifier = Modifier.weight(2f)
             )
