@@ -6,8 +6,8 @@ import androidx.room.PrimaryKey
 @Entity("Prestamos")
 data class PrestamoEntity(
     @PrimaryKey(autoGenerate = true)
-    val PrestamoId: Int?= null,
-    val Deudor: String,
-    val Concepto: String,
-    val Monto: Double
+    val prestamoId: Int?= null,
+    val deudor: String,
+    val concepto: String,
+    val monto: Double
 )
