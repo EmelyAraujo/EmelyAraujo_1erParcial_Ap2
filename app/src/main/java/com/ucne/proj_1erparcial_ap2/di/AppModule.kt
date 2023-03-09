@@ -31,5 +31,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun providesOcupacionDao(db: PrestamoDb) = db.prestamoDao
+    fun providesPrestamosDao(db: PrestamoDb) = db.prestamoDao
+
+    @Singleton
+    @Provides
+    fun providesOcupacionDao(db: PrestamoDb) = db.ocupacionesDao
 }

@@ -7,6 +7,7 @@ import javax.inject.Inject
 
 class PrestamoRepository @Inject constructor(
     private  val prestamoDao: PrestamoDao
+
 ) {
     suspend fun insert(prestamo: PrestamoEntity) {
         return prestamoDao.insert(prestamo)
@@ -14,3 +15,5 @@ class PrestamoRepository @Inject constructor(
     fun getList(): Flow<List<PrestamoEntity>> = prestamoDao.getList()
 
 }
+
+
