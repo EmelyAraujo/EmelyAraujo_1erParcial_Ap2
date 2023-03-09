@@ -33,7 +33,7 @@ fun PrestamoScreen(viewModel: PrestamoViewModel = hiltViewModel()) {
             .padding(8.dp)
     ) {
         val uiState by viewModel.uiState.collectAsState()
-        PrestamoBody(viewModel)
+        PrestamoBody(viewModel,uiState.ocupacionesList)
 
 
         PrestamoListScreen(uiState.prestamosList)
@@ -44,7 +44,7 @@ fun PrestamoScreen(viewModel: PrestamoViewModel = hiltViewModel()) {
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 private fun PrestamoBody(
-    viewModel: PrestamoViewModel
+    viewModel: PrestamoViewModel, ocupacionesList:List<OcupacionesEntity>
 ) {
     Column(modifier = Modifier.fillMaxWidth()) {
 
@@ -99,9 +99,8 @@ private fun PrestamoBody(
             )
         }
 
-        val uiState by viewModel.uiState.collectAsState()
 
-        MyDropdownMenu(uiState.ocupacionesList)
+        MyDropdownMenu(ocupacionesList)
 
         Spacer(modifier = Modifier.padding(8.dp))
         ExtendedFloatingActionButton(
@@ -226,12 +225,11 @@ fun MyPreview() {
             )
         }
 
-        MyDropdownMenu()
     }
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MyDropdownMenu(items: List<OcupacionesEntity> = emptyList()) {
+fun MyDropdownMenu(items: List<OcupacionesEntity> ) {
     var expandio by remember { mutableStateOf(false) }
 
     var selectedText by remember { mutableStateOf("") }

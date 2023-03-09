@@ -12,6 +12,6 @@ class OcupacionesRepository @Inject constructor(
     suspend fun insert(ocupacion: OcupacionesEntity) {
         return ocupacionesDao.insert(ocupacion)
     }
-    fun getList(): Flow<List<OcupacionesEntity>> = ocupacionesDao.getList()
+    suspend fun getList(): List<OcupacionesEntity> = ocupacionesDao.getList()
 
 }

@@ -19,5 +19,5 @@ interface OcupacionesDao{
         FROM Ocupaciones
     """
     )
-    fun getList(): Flow<List<OcupacionesEntity>>
+   suspend fun getList(): List<OcupacionesEntity>
 }

@@ -51,12 +51,14 @@ class PrestamoViewModel @Inject constructor(
                 }
             }
 
-            ocupacionesRepository.getList().collect{ lista ->
-                uiState.update {
-                    it.copy(ocupacionesList = lista)
-                }
+            ocupacionesRepository.insert(OcupacionesEntity(nombre = "Ingeniero"))
+            ocupacionesRepository.insert(OcupacionesEntity(nombre = "Abogado"))
+
+            uiState.update {
+                it.copy(ocupacionesList = ocupacionesRepository.getList())
             }
         }
+
     }
 
     fun onDeudorChanged(deudor: String) {
@@ -86,20 +88,20 @@ class PrestamoViewModel @Inject constructor(
         }
     }
 
-    private fun HayErrores():Boolean {
-        var hayError=false
+    private fun HayErrores(): Boolean {
+        var hayError = false
         deudorError = ""
         if (deudor.isBlank()) {
             deudorError = "Debe indicar el deudor"
-            hayError=true
+            hayError = true
         }
 
         montoError = ""
         if ((monto.toDoubleOrNull() ?: 0.0) <= 0.0) {
             montoError = "Debe indicar un monto mayor que cero"
-            hayError=true
+            hayError = true
         }
-        return  hayError
+        return hayError
     }
 
     private fun Limpiar() {
